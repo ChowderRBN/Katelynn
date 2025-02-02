@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+        }
+        #yes {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+        #no {
+            padding: 10px 20px;
+        }
+        #heart {
+            display: none;
+            font-size: 50px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="question">Will you be my Valentine? ❤️</h1>
+    <button id="yes" onclick="acceptLove()">Yes</button>
+    <button id="no" onclick="declineLove()">No</button>
+    <div id="heart">❤️</div>
+
+    <script>
+        let noTexts = ["Are you sure?", "Really sure?", "Think again!", "Last chance!", "Please say yes 😢"];
+        let noClickCount = 0;
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let heart = document.getElementById("heart");
+        let question = document.getElementById("question");
+
+        function acceptLove() {
+            heart.style.display = "block";
+            question.innerText = "Yay! You made my day! ❤️🥰";
+            yesButton.style.display = "none";
+            noButton.style.display = "none";
+        }
+
+        function declineLove() {
+            if (noClickCount < noTexts.length) {
+                noButton.innerText = noTexts[noClickCount];
+                noClickCount++;
+                yesButton.style.fontSize = (16 + noClickCount * 5) + "px";
+            } else {
+                alert("Okay... I guess I'll be alone 💔");
+            }
+        }
+    </script>
+</body>
+</html>
