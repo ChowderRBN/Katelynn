@@ -43,6 +43,10 @@
             question.innerText = "Yay! You made my day! ❤️🥰";
             yesButton.style.display = "none";
             noButton.style.display = "none";
+            
+            if (noClickCount === 0) {
+                alert("Wow! You said yes right away! You’re amazing! ❤️🥰");
+            }
         }
 
         function declineLove() {
